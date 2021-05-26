@@ -45,10 +45,10 @@ public class Radio {
 
     public void setCurrentRadioStationNumber(int currentRadioStationNumber) {
         if (currentRadioStationNumber > maxRadioStationNumber) {
-            currentRadioStationNumber = minRadioStationNumber;
+            currentRadioStationNumber = maxRadioStationNumber;
         }
         if (currentRadioStationNumber < minRadioStationNumber) {
-            currentRadioStationNumber = maxRadioStationNumber;
+            currentRadioStationNumber = minRadioStationNumber;
         }
         // здесь уверены, что все проверки прошли
         this.currentRadioStationNumber = currentRadioStationNumber;
@@ -58,10 +58,12 @@ public class Radio {
 
     public int nextRadioStationNumber() {
         if (currentRadioStationNumber >= maxRadioStationNumber) {
-            currentRadioStationNumber = maxRadioStationNumber;
-        } else if (currentRadioStationNumber < minRadioStationNumber) {
             currentRadioStationNumber = minRadioStationNumber;
-        } else {
+        }
+        //else if (currentRadioStationNumber < minRadioStationNumber) {
+          //  currentRadioStationNumber = minRadioStationNumber;}
+
+        else {
             currentRadioStationNumber = currentRadioStationNumber + 1;
         }
         return currentRadioStationNumber;
@@ -70,10 +72,11 @@ public class Radio {
 
     public int prevRadioStationNumber() {
         if (currentRadioStationNumber <= minRadioStationNumber) {
-            currentRadioStationNumber = minRadioStationNumber;
-        } else if (currentRadioStationNumber > maxRadioStationNumber) {
             currentRadioStationNumber = maxRadioStationNumber;
-        } else {
+        }
+        //else if (currentRadioStationNumber > maxRadioStationNumber) {
+            //currentRadioStationNumber = maxRadioStationNumber; }
+    else {
             currentRadioStationNumber = currentRadioStationNumber - 1;
         }
         return currentRadioStationNumber;
